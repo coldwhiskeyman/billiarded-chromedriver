@@ -21,7 +21,7 @@ from setuptools import setup
 dirname = os.path.abspath(os.path.dirname(__file__))
 
 with codecs.open(
-    os.path.join(dirname, "undetected_chromedriver", "__init__.py"),
+    os.path.join(dirname, "billiarded_chromedriver", "__init__.py"),
     mode="r",
     encoding="utf-8",
 ) as fp:
@@ -31,23 +31,25 @@ with codecs.open(
         raise RuntimeError("unable to determine version")
 
 description = (
-    "Fork of the"
+    "Fork of the undetected_chromedriver by ULTRAFUNKAMSTERDAM",
+    "Multiprocessing is replaced with billiard for using with celery",
+    "Source description:",
     "Selenium.webdriver.Chrome replacement with compatiblity for Brave, and other Chromium based browsers.",
     "Not triggered by CloudFlare/Imperva/hCaptcha and such.",
     "NOTE: results may vary due to many factors. No guarantees are given, except for ongoing efforts in understanding detection algorithms.",
 )
 
 setup(
-    name="billarded-chromedriver",
+    name="billiarded-chromedriver",
     version=version,
-    packages=["billarded_chromedriver"],
+    packages=["billiarded_chromedriver"],
     install_requires=[
         "selenium>=4.9.0",
         "requests",
         "websockets",
         "billiard",
     ],
-    package_data={"billarded_chromedriver": [os.path.join("example", "example.py")]},
+    package_data={"billiarded_chromedriver": [os.path.join("example", "example.py")]},
     url="https://github.com/coldwhiskeyman/billiarded-chromedriver",
     license="GPL-3.0",
     author="coldwhiskeyman",
