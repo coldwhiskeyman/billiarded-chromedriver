@@ -17,7 +17,7 @@ import time
 from urllib.request import urlopen
 from urllib.request import urlretrieve
 import zipfile
-from multiprocessing import Lock
+from billiard import Lock
 
 logger = logging.getLogger(__name__)
 

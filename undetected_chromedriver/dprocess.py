@@ -1,6 +1,6 @@
 import atexit
 import logging
-import multiprocessing
+import billiard
 import os
 import platform
 import signal
@@ -24,10 +24,10 @@ def start_detached(executable, *args):
     """
 
     # create pipe
-    reader, writer = multiprocessing.Pipe(False)
+    reader, writer = billiard.Pipe(False)
 
     # do not keep reference
-    multiprocessing.Process(
+    billiard.Process(
         target=_start_detached,
         args=(executable, *args),
         kwargs={"writer": writer},
@@ -43,7 +43,7 @@ def start_detached(executable, *args):
     return pid
 
 
-def _start_detached(executable, *args, writer: multiprocessing.Pipe = None):
+def _start_detached(executable, *args, writer: billiard.Pipe = None):
     # configure launch
     kwargs = {}
     if platform.system() == "Windows":

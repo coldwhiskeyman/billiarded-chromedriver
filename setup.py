@@ -31,25 +31,27 @@ with codecs.open(
         raise RuntimeError("unable to determine version")
 
 description = (
+    "Fork of the"
     "Selenium.webdriver.Chrome replacement with compatiblity for Brave, and other Chromium based browsers.",
     "Not triggered by CloudFlare/Imperva/hCaptcha and such.",
     "NOTE: results may vary due to many factors. No guarantees are given, except for ongoing efforts in understanding detection algorithms.",
 )
 
 setup(
-    name="undetected-chromedriver",
+    name="billarded-chromedriver",
     version=version,
-    packages=["undetected_chromedriver"],
+    packages=["billarded_chromedriver"],
     install_requires=[
         "selenium>=4.9.0",
         "requests",
         "websockets",
+        "billiard",
     ],
-    package_data={"undetected_chromedriver": [os.path.join("example", "example.py")]},
-    url="https://github.com/ultrafunkamsterdam/undetected-chromedriver",
+    package_data={"billarded_chromedriver": [os.path.join("example", "example.py")]},
+    url="https://github.com/coldwhiskeyman/billiarded-chromedriver",
     license="GPL-3.0",
-    author="UltrafunkAmsterdam",
-    author_email="info@blackhat-security.nl",
+    author="coldwhiskeyman",
+    author_email="eldiablo5783@gmail.com",
     description=description,
     long_description=open(os.path.join(dirname, "README.md"), encoding="utf-8").read(),
     long_description_content_type="text/markdown",

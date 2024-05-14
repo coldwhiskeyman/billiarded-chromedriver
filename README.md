@@ -1,3 +1,8 @@
+# billiarded_chromedriver
+
+Fork of the undetected_chromedriver package. In this version multiprocessing is replaced by billiard 
+for using with celery
+
 # undetected_chromedriver #
 
 https://github.com/ultrafunkamsterdam/undetected-chromedriver
